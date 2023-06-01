@@ -1,0 +1,18 @@
+.signOptions {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+   
+}
+
+.signOptions .option {
+    padding:10px;
+    text-decoration: none;
+    color: black;
+}
+
+.signOptions .optionSpan{
+    padding-left: 5px;    
+}

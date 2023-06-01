@@ -1,0 +1,26 @@
+.trans {
+    width: 80%;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+}
+
+.trans .amount-view-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount-view-container .amount{
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.amount-view-container .view{
+    color: white;
+    background-color: #00bc77;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px;
+}

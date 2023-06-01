@@ -1,0 +1,54 @@
+.main-user {
+    background-color: black;
+    flex: 1;
+}
+
+.main-user-container .welcome {
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main-user-container .edit-button {
+    display: block;
+    color: white;
+    background-color: #00bc77;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 30px auto 30px auto;
+}
+
+.main-user-container .edit {
+    
+    color: white;
+    text-align: center;
+}
+
+.main-user-container .edit h2{
+    font-size: 24px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+}
+
+.main-user-container .edit p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+
+
+
+.main-user-container .edit button {
+    background-color: #00bc77;
+    color: white;
+    margin: 10px;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 3px;
+
+}
