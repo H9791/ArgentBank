@@ -9,8 +9,8 @@ import { useDispatch } from 'react-redux'
 
 export default function Signoptions() {
     //in case of page reload, prevent losing the app state, or recontact server to fetch up to date data
-    
-    
+
+
     const dispatch = useDispatch()
     const [fetchProfile, { result }] = useFetchProfileMutation();
     //check for a cookie token, if it exists, call server and get first name
@@ -45,15 +45,18 @@ export default function Signoptions() {
     //depending on being signed in or signed out, generated elements will change
 
     return (
-        <div className="signOptions">
 
-            {(userData.firstName) ? <>
-                <Link className="option" to="/user"><i className="fa fa-user-circle" ></i><span className="optionSpan">{userData.firstName}</span></Link>
-                <Link className="option" onClick={handleSignout}><i className="fa fa-sign-out" ></i><span className="optionSpan">Sign out</span></Link>
-            </>
-                : <Link className="option" to="/signin"><i className="fa fa-user-circle" ></i><span className="optionSpan">Sign in</span></Link>}
+        <nav>
+            <div className="signOptions">
 
-        </div>
+                {(userData.firstName) ? <>
+                    <Link className="option" to="/user"><i className="fa fa-user-circle" ></i><span className="optionSpan">{userData.firstName}</span></Link>
+                    <Link className="option" onClick={handleSignout}><i className="fa fa-sign-out" ></i><span className="optionSpan">Sign out</span></Link>
+                </>
+                    : <Link className="option" to="/signin"><i className="fa fa-user-circle" ></i><span className="optionSpan">Sign in</span></Link>}
+
+            </div>
+        </nav>
     )
 
 }

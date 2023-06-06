@@ -34,7 +34,9 @@ export default function Mainuser() {
             console.log("result:", result)
             console.log("username: ", userName)
             dispatch(setNameOfUser(userName))
+            setContainerContent('welcome')
             console.log(profile.userName)
+
         } catch (error) {
             console.log("error: ",)
         }
