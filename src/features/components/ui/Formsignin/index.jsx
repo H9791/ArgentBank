@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthorizeUserMutation, useFetchProfileMutation } from 'src/redux/api/apiSlice'
 import { setToken } from 'src/redux/slices/authSlice'
 import { setUser }  from 'src/redux/slices/userSlice'
-import { useCookies } from 'react-cookie'
+import  Cookies from 'js-cookie'
 
 export default function Formsignin() {
 
@@ -20,8 +20,6 @@ export default function Formsignin() {
     const [authorizeUser, {isSuccess} ] = useAuthorizeUserMutation()
     const [fetchProfile, {data}] = useFetchProfileMutation()
 
-    const [cookies, setCookie] = useCookies(['token']);
-
     const onSigninClicked = async (event) => {
         event.preventDefault();
         setErrorMessage("");
@@ -31,7 +29,7 @@ export default function Formsignin() {
             const payload = await authorizeUser({ username: username, password: password }).unwrap()
             console.log("token", payload.body.token)
             dispatch(setToken(payload.body.token))
-            setCookie('token', payload.body.token)
+            Cookies.set('token', payload.body.token)
             const profile = await fetchProfile(payload.body.token).unwrap()
 
             //store user data in the store

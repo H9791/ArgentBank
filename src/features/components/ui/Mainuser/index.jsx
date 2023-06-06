@@ -77,7 +77,6 @@ export default function Mainuser() {
                     </div>
                 </>
                 }
-
                 <section className="transactions">
                     <Transactions />
                 </section>

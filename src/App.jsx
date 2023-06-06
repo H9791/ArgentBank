@@ -9,7 +9,6 @@ import {
 } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from 'src/redux/store'
-import { CookieProvider } from 'react-cookie'
 
 //ReactRouter 6.11 (2023)
 const router = createBrowserRouter([
@@ -32,11 +31,11 @@ const router = createBrowserRouter([
 
 function App() {
     return (
-        <CookieProvider>
-            <Provider store={store}>
+
+        <Provider store={store}>
                 <RouterProvider router={router} />
-            </Provider>
-        </CookieProvider>
+        </Provider>
+
     )
 }
 
