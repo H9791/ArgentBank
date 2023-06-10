@@ -43,7 +43,6 @@ export const apiSlice = createApi({
         updateUsername: builder.mutation({
             invalidatesTags: ['Profile'],
             query: (payload) => {
-                console.log("payload.token: ", payload.token)
                 return ({
                     url: '/user/profile',
                     method: 'PUT',

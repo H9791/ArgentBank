@@ -42,4 +42,6 @@ export const selectProfile = (state) => ({
     userName: state.user.userName
 })
 
+export const selectUsername = (state) => state.user.userName
+
 export default userSlice.reducer

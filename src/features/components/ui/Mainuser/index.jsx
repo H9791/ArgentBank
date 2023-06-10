@@ -3,27 +3,17 @@ import Transactions from 'src/features/components/ui/Transactions'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { selectProfile, setUser } from 'src/redux/slices/userSlice'
-
 import { useFetchProfileQuery } from 'src/redux/api/apiSlice'
 import { selectToken } from 'src/redux/slices/authSlice'
 
 //just fetch data
 export default function Mainuser() {
-    console.log("mainuser")
-    const authToken = useSelector(selectToken)
-
-    const { data, error, isFetching } = useFetchProfileQuery(authToken)
-       
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    const authToken = useSelector(selectToken)
     //userName should update automatically after store state change
     const profile = useSelector(selectProfile)
-    
-
-    const handleClick = () => {
-        navigate("/useredit")
-     }
+    const { data, error, isFetching, isSuccess } = useFetchProfileQuery(authToken)
     
     let content
     if (isFetching){
@@ -31,16 +21,16 @@ export default function Mainuser() {
         content = <p>Fetching data...</p>
     } else if( error ) {
         content = <p>Error fetching profile</p>
-    } else {
+    } else if (isSuccess) {
         //have profile data fetched
         dispatch(setUser(data))
         console.log("PROFILE DATA2:", profile)
     }
+    
+    const handleClick = () => {navigate("/useredit")}
 
-    return (<>
-        
+return (<>
         {content}
-
         <main className="main-user">
         <div className="main-user-container">
                 <div className="welcome">
@@ -53,9 +43,7 @@ export default function Mainuser() {
             </section>
         </div>
     </main>
-
     </>)
-
 }
 
 

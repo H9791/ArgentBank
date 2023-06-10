@@ -16,28 +16,26 @@ export default function Edituser() {
     //fetch user profile from the store
     const profile = useSelector(selectProfile);
     const authToken = useSelector(selectToken)
-    console.log("authToken: ",authToken)
-    const [updateUsername, data] = useUpdateUsernameMutation();
+    console.log("authToken: ", authToken)
+    const [updateUsername, { isSuccess }] = useUpdateUsernameMutation();
 
     const onUsernameSaved = async (event) => {
+        event.preventDefault();
         try {
-            event.preventDefault();
-            console.log("call apiSlice username:", profile.userName)
-
             //DB update of username, this call invalidates TAG for fetchProfile 
             //which should refresh automatically
-            const result = await updateUsername({ userName:formUsername, token:authToken }).unwrap()
-            console.log("data:", data)
-            console.log("result:", result)
-            navigate("/user")
-
+            updateUsername({ userName: formUsername, token: authToken })
         } catch (error) {
             console.log("error in Edituser -> onUsernameSaved() : ", error)
         }
     }
 
+    if (isSuccess) {
+        navigate("/user")
+    }
+
     const onEditCancelled = () => { navigate("/user") }
-    console.log("profile.userName: ", profile.userName)
+
     const [formUsername, setFormUsername] = useState(profile.userName)
     const onUsernameChanged = (e) => setFormUsername(e.target.value)
 
