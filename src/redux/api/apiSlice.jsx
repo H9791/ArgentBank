@@ -1,8 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const apiSlice = createApi({
-    /*reducerPath: 'api',*/
+    reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/api/v1' }),
+    tagTypes : ['Profile'],
+
     endpoints: builder => ({
 
         authorizeUser: builder.mutation({
@@ -15,7 +17,9 @@ export const apiSlice = createApi({
                 })
             }
         }),
-        fetchProfile: builder.mutation({
+        
+        fetchProfile: builder.query({
+            providesTags: ['Profile'],
             query: (payload) => {
                 return ({
                     url: '/user/profile',
@@ -37,7 +41,9 @@ export const apiSlice = createApi({
         }),
 
         updateUsername: builder.mutation({
+            invalidatesTags: ['Profile'],
             query: (payload) => {
+                console.log("payload.token: ", payload.token)
                 return ({
                     url: '/user/profile',
                     method: 'PUT',
@@ -49,9 +55,10 @@ export const apiSlice = createApi({
                         userName: payload.userName
                     }
                 })
-            }
+            },
+            
         })
     })
 })
 
-export const { useAuthorizeUserMutation, useFetchProfileMutation, useUpdateUsernameMutation } = apiSlice
+export const { useAuthorizeUserMutation, useFetchProfileQuery, useUpdateUsernameMutation } = apiSlice

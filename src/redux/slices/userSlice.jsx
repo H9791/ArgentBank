@@ -12,20 +12,18 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action) => {
-            console.log("action.payload: ", action.payload)
             state.email = action.payload.email,
             state.firstName = action.payload.firstName,
             state.lastName = action.payload.lastName,
             state.userName = action.payload.userName || ""
-            console.log("state.userName: ", state.userName)
         },
 
-        setNameOfUser: (state, action) => {
+        /* setNameOfUser: (state, action) => {
             console.log("action.payload: ", action.payload)
             state.userName = action.payload
             // call put request to update userName
         },
-
+ */
         removeUser: (state) => {
             state.email = "",
             state.firstName = "",

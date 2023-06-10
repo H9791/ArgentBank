@@ -21,34 +21,3 @@
     margin: 30px auto 30px auto;
 }
 
-.main-user-container .edit {
-    
-    color: white;
-    text-align: center;
-}
-
-.main-user-container .edit h2{
-    font-size: 24px;
-    font-weight: normal;
-    color: white;
-    text-align: center;
-}
-
-.main-user-container .edit p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-
-
-
-.main-user-container .edit button {
-    background-color: #00bc77;
-    color: white;
-    margin: 10px;
-    padding: 10px 40px;
-    border: none;
-    border-radius: 3px;
-
-}

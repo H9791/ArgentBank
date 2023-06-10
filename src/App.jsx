@@ -3,6 +3,7 @@ import Homepage from 'src/pages/Homepage'
 import Signinpage from 'src/pages/Signinpage'
 import Notfound from 'src/pages/Notfound'
 import Userpage from 'src/pages/Userpage'
+import Usereditpage from 'src/pages/Usereditpage'
 import {
     createBrowserRouter,
     RouterProvider
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
         path: "/user",
         element: <Userpage />
+    },
+    {
+        path: "/useredit",
+        element: <Usereditpage />
     },
     {
         path: "*",
