@@ -1,6 +1,6 @@
-import Header from "./features/components/ui/Header";
-import Formsignin from "./features/components/ui/Formsignin";
-import Footer from "./features/components/ui/Footer";
+import Header from "../../components/Header";
+import Formsignin from "../../components/Formsignin";
+import Footer from "../../components/Footer";
 
 export default function Signinpage() {
     return (

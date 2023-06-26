@@ -1,63 +1,77 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
-    reducerPath: 'api',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/api/v1' }),
-    tagTypes : ['Profile'],
+    reducerPath: "api",
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/api/v1" }),
+    tagTypes: ["Profile"],
 
-    endpoints: builder => ({
-
+    endpoints: (builder) => ({
         authorizeUser: builder.mutation({
             query: (payload) => {
-                return ({
-                    url: '/user/login',
-                    method: 'POST',
-                    body: { email: payload.username, password: payload.password },
-                    headers: { 'Content-Type': 'application/json' }
-                })
-            }
+                return {
+                    url: "/user/login",
+                    method: "POST",
+                    body: {
+                        email: payload.username,
+                        password: payload.password,
+                    },
+                    headers: { "Content-Type": "application/json" },
+                };
+            },
         }),
-        
+
         fetchProfile: builder.query({
-            providesTags: ['Profile'],
+            providesTags: ["Profile"],
             query: (payload) => {
-                return ({
-                    url: '/user/profile',
-                    method: 'POST',
+                return {
+                    url: "/user/profile",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${payload}`
-                    }
-                })
+                        Authorization: `Bearer ${payload}`,
+                    },
+                };
             },
-            transformResponse: responseData => {
+            transformResponse: (responseData: Data) => {
                 return {
                     email: responseData.body.email,
                     firstName: responseData.body.firstName,
                     lastName: responseData.body.lastName,
-                    userName: responseData.body.userName
-                }
-            }
+                    userName: responseData.body.userName,
+                };
+            },
         }),
 
         updateUsername: builder.mutation({
-            invalidatesTags: ['Profile'],
+            invalidatesTags: ["Profile"],
             query: (payload) => {
-                return ({
-                    url: '/user/profile',
-                    method: 'PUT',
+                return {
+                    url: "/user/profile",
+                    method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${payload.token}`
+                        Authorization: `Bearer ${payload.token}`,
                     },
                     body: {
-                        userName: payload.userName
-                    }
-                })
+                        userName: payload.userName,
+                    },
+                };
             },
-            
-        })
-    })
-})
+        }),
+    }),
+});
 
-export const { useAuthorizeUserMutation, useFetchProfileQuery, useUpdateUsernameMutation } = apiSlice
+type Data = {
+    body: {
+        email: string;
+        firstName: string;
+        lastName: string;
+        userName: string;
+    };
+};
+
+export const {
+    useAuthorizeUserMutation,
+    useFetchProfileQuery,
+    useUpdateUsernameMutation,
+} = apiSlice;

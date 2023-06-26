@@ -1,16 +1,14 @@
-import './styles.css'
-import Header from 'src/features/components/ui/Header'
-import Footer from 'src/features/components/ui/Footer'
-import Mainuser from 'src/features/components/ui/Mainuser'
- 
+import "./styles.css";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Mainuser from "../../components/Mainuser";
 
-export default function Userpage(){
-   
-  
-    return (<>
-    <Header />
-    <Mainuser />
-    <Footer />
-    </>)
-
+export default function Userpage() {
+    return (
+        <>
+            <Header />
+            <Mainuser />
+            <Footer />
+        </>
+    );
 }
