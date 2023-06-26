@@ -18,9 +18,7 @@ export const authSlice = createSlice({
 });
 
 export const { setToken, removeToken } = authSlice.actions;
-
 export const selectToken = (state: AuthState) => state.auth.authToken;
-
 type AuthState = {
     auth: { authToken: string };
 };
