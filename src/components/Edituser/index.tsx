@@ -8,9 +8,6 @@ import { useState, FormEvent, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Edituser() {
-    console.log(
-        "******************************************************in edit user"
-    );
     const navigate = useNavigate();
 
     //fetch user profile from the store
