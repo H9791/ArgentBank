@@ -12,12 +12,14 @@ export default function Formsignin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [remember, setRemember] = useState(false);
+
     const onUsernameChanged = (e: ChangeEvent<HTMLInputElement>) =>
         setUsername(e.target.value);
     const onPasswordChanged = (e: ChangeEvent<HTMLInputElement>) =>
         setPassword(e.target.value);
     const onRememberChanged = (e: ChangeEvent<HTMLInputElement>) =>
         setRemember(e.target.checked);
+
     const [authorizeUser, { data, isSuccess }] = useAuthorizeUserMutation();
     const onSigninSubmitted = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
