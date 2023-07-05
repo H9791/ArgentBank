@@ -16,7 +16,7 @@ export default function Edituser() {
     console.log("authToken: ", authToken);
     const [updateUsername, { isSuccess }] = useUpdateUsernameMutation();
 
-    const onUsernameSaved = async (event: FormEvent<HTMLFormElement>) => {
+    const onUsernameSaved = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
             //DB update of username, this call invalidates TAG for fetchProfile

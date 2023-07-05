@@ -8,6 +8,7 @@ import { HiUserCircle } from "react-icons/hi";
 import { FaSignOutAlt } from "react-icons/fa";
 
 export default function Header() {
+    console.log("header!");
     const dispatch = useDispatch();
     let user = useSelector(selectUsername);
     let signedIn = useSelector(selectToken);
@@ -15,41 +16,44 @@ export default function Header() {
     const handleSignout = () => {
         dispatch(removeUser());
         dispatch(removeToken());
+        //in future add PURGE to extra reducers for redux-persist?
     };
 
     return (
-        <div className="header">
-            <Link to="/">
-                <img className="logo" src={argentBankLogo} />
-            </Link>
-            <nav>
-                <div className="signOptions">
-                    {signedIn ? (
-                        <>
-                            <Link className="option" to="/user">
+        <>
+            <div className="header">
+                <Link to="/">
+                    <img className="logo" src={argentBankLogo} />
+                </Link>
+                <nav>
+                    <div className="signOptions">
+                        {signedIn ? (
+                            <>
+                                <Link className="option" to="/user">
+                                    <span className="optionSpan">
+                                        <HiUserCircle /> {user}
+                                    </span>
+                                </Link>
+                                <Link
+                                    className="option"
+                                    to="/"
+                                    onClick={handleSignout}
+                                >
+                                    <span className="optionSpan">
+                                        <FaSignOutAlt /> Sign out
+                                    </span>
+                                </Link>
+                            </>
+                        ) : (
+                            <Link className="option" to="/signin">
                                 <span className="optionSpan">
-                                    <HiUserCircle /> {user}
+                                    <HiUserCircle /> Sign in
                                 </span>
                             </Link>
-                            <Link
-                                className="option"
-                                to="/"
-                                onClick={handleSignout}
-                            >
-                                <span className="optionSpan">
-                                    <FaSignOutAlt /> Sign out
-                                </span>
-                            </Link>
-                        </>
-                    ) : (
-                        <Link className="option" to="/signin">
-                            <span className="optionSpan">
-                                <HiUserCircle /> Sign in
-                            </span>
-                        </Link>
-                    )}
-                </div>
-            </nav>
-        </div>
+                        )}
+                    </div>
+                </nav>
+            </div>
+        </>
     );
 }
