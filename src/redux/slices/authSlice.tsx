@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { apiSlice } from "../api/apiSlice";
 
 const initialState = {
     authToken: "",
@@ -14,6 +15,15 @@ export const authSlice = createSlice({
         removeToken: (state) => {
             state.authToken = "";
         },
+    },
+    extraReducers: (builder) => {
+        builder.addMatcher(
+            apiSlice.endpoints.authorizeUser.matchFulfilled,
+            (state, action) => {
+                state.authToken = action.payload.body.token;
+                console.log("logging token:", state.authToken);
+            }
+        );
     },
 });
 

@@ -21,18 +21,21 @@ export default function Formsignin() {
         setRemember(e.target.checked);
 
     const [authorizeUser, { data, isSuccess }] = useAuthorizeUserMutation();
+
     const onSigninSubmitted = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
+            console.log("before authorizeUSer");
             authorizeUser({ username: username, password: password });
         } catch (error: any) {
-            console.log("error: ", error.data.message);
+            console.log("error: ", error);
         }
     };
 
     if (isSuccess) {
         console.log("success, token: ", data.body.token);
-        dispatch(setToken(data.body.token));
+        //taken care in extrareducers of authuser slice
+        //dispatch(setToken(data.body.token));
         navigate("/user");
     }
 
