@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { apiSlice } from "../api/apiSlice";
 
 const initialState: UserState = {
     email: "",
@@ -24,6 +25,17 @@ export const userSlice = createSlice({
                 (state.lastName = ""),
                 (state.userName = "");
         },
+    },
+    extraReducers: (builder) => {
+        builder.addMatcher(
+            apiSlice.endpoints.fetchProfile.matchFulfilled,
+            (state, action) => {
+                (state.email = action.payload.email),
+                    (state.firstName = action.payload.firstName),
+                    (state.lastName = action.payload.lastName),
+                    (state.userName = action.payload.userName || "");
+            }
+        );
     },
 });
 

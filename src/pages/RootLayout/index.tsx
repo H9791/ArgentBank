@@ -1,12 +1,12 @@
+import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Edituser from "../../components/Edituser";
 
-export default function Usereditpage() {
+export default function RootLayout() {
     return (
         <>
             <Header />
-            <Edituser />
+            <Outlet />
             <Footer />
         </>
     );

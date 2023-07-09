@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAuthorizeUserMutation } from "../../redux/api/apiSlice";
@@ -8,7 +8,7 @@ import { setToken } from "../../redux/slices/authSlice";
 export default function Formsignin() {
     //if user already signed in, redirect to the home page
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [remember, setRemember] = useState(false);

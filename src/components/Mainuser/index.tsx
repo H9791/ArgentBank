@@ -1,16 +1,18 @@
 import "./styles.css";
 import Transactions from "../../components/Transactions";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { selectProfile, setUser } from "../../redux/slices/userSlice";
 import { useFetchProfileQuery } from "../../redux/api/apiSlice";
 import { selectToken } from "../../redux/slices/authSlice";
 
 //just fetch data
 export default function Mainuser() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const authToken = useSelector(selectToken);
+    if (authToken === "") {
+        navigate("/");
+    }
     //userName should update automatically after store state change
     const profile = useSelector(selectProfile);
     const { data, error, isFetching, isSuccess } =
@@ -22,15 +24,13 @@ export default function Mainuser() {
         content = <p>Fetching data...</p>;
     } else if (error) {
         content = <p>Error fetching profile</p>;
-    } else if (isSuccess) {
-        //have profile data fetched
-        dispatch(setUser(data));
-        console.log("PROFILE DATA2:", profile);
     }
 
-    const handleClick = () => {
-        navigate("/useredit");
-    };
+    if (isSuccess) {
+        //have profile data fetched
+        //dispatch(setUser(data));
+        console.log("user set! ", profile);
+    }
 
     return (
         <>
@@ -44,9 +44,11 @@ export default function Mainuser() {
                             <span>{profile.lastName}</span>
                         </p>
                     </div>
-                    <button className="edit-button" onClick={handleClick}>
+
+                    <Link className="edit-button" to="/useredit">
                         Edit name
-                    </button>
+                    </Link>
+
                     <section className="transactions">
                         <Transactions />
                     </section>

@@ -1,11 +1,12 @@
 import "./style.css";
+import { useEffect } from "react";
 import { useUpdateUsernameMutation } from "../../redux/api/apiSlice";
 import Transactions from "../../components/Transactions";
 import { selectProfile } from "../../redux/slices/userSlice";
 import { selectToken } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import { useState, FormEvent, ChangeEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Edituser() {
     const navigate = useNavigate();
@@ -30,10 +31,6 @@ export default function Edituser() {
     if (isSuccess) {
         navigate("/user");
     }
-
-    const onEditCancelled = () => {
-        navigate("/user");
-    };
 
     const [formUsername, setFormUsername] = useState(profile.userName);
     const onUsernameChanged = (e: ChangeEvent<HTMLInputElement>) =>
@@ -76,9 +73,7 @@ export default function Edituser() {
                             </p>
                             <p>
                                 <button type="submit">Save</button>
-                                <button onClick={onEditCancelled}>
-                                    Cancel
-                                </button>
+                                <Link to="/user">Cancel</Link>
                             </p>
                         </div>
                     </form>
