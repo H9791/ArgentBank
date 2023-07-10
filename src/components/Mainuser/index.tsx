@@ -1,13 +1,16 @@
 import "./styles.css";
 import Transactions from "../../components/Transactions";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectProfile, setUser } from "../../redux/slices/userSlice";
 import { useFetchProfileQuery } from "../../redux/api/apiSlice";
 import { selectToken } from "../../redux/slices/authSlice";
 
-//just fetch data
-export default function Mainuser() {
+type MainuserProps = {
+    showUser: (params: boolean) => void;
+};
+
+export default function Mainuser({ showUser }: MainuserProps) {
     const navigate = useNavigate();
     const authToken = useSelector(selectToken);
     if (authToken === "") {
@@ -26,11 +29,11 @@ export default function Mainuser() {
         content = <p>Error fetching profile</p>;
     }
 
-    if (isSuccess) {
+    /*     if (isSuccess) {
         //have profile data fetched
         //dispatch(setUser(data));
         console.log("user set! ", profile);
-    }
+    } */
 
     return (
         <>
@@ -45,9 +48,12 @@ export default function Mainuser() {
                         </p>
                     </div>
 
-                    <Link className="edit-button" to="/useredit">
+                    <button
+                        className="edit-button"
+                        onClick={() => showUser(false)}
+                    >
                         Edit name
-                    </Link>
+                    </button>
 
                     <section className="transactions">
                         <Transactions />

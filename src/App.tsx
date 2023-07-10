@@ -10,7 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import Main from "./components/Main";
 import RootLayout from "./pages/RootLayout";
-
+import Logged from "./components/Logged";
 //ReactRouter 6.11 (2023)
 const router = createBrowserRouter([
     {
@@ -27,12 +27,8 @@ const router = createBrowserRouter([
                 element: <Formsignin />,
             },
             {
-                path: "/user",
-                element: <Mainuser />,
-            },
-            {
-                path: "/useredit",
-                element: <Edituser />,
+                path: "/logged",
+                element: <Logged />,
             },
         ],
     },

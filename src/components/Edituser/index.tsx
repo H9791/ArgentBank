@@ -6,17 +6,17 @@ import { selectProfile } from "../../redux/slices/userSlice";
 import { selectToken } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import { useState, FormEvent, ChangeEvent } from "react";
-import { useNavigate, Link } from "react-router-dom";
 
-export default function Edituser() {
-    const navigate = useNavigate();
+type EdituserProps = {
+    showUser: (params: boolean) => void;
+};
 
+export default function Edituser({ showUser }: EdituserProps) {
     //fetch user profile from the store
     const profile = useSelector(selectProfile);
     const authToken = useSelector(selectToken);
-    console.log("authToken: ", authToken);
+    const [formUsername, setFormUsername] = useState(profile.userName);
     const [updateUsername, { isSuccess }] = useUpdateUsernameMutation();
-
     const onUsernameSaved = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
@@ -28,11 +28,12 @@ export default function Edituser() {
         }
     };
 
-    if (isSuccess) {
-        navigate("/user");
-    }
+    useEffect(() => {
+        if (isSuccess) {
+            showUser(true);
+        }
+    }, [isSuccess]);
 
-    const [formUsername, setFormUsername] = useState(profile.userName);
     const onUsernameChanged = (e: ChangeEvent<HTMLInputElement>) =>
         setFormUsername(e.target.value);
 
@@ -63,17 +64,23 @@ export default function Edituser() {
                                 ></input>
                             </p>
                             <p>
-                                <label>Last name: </label>
+                                <label htmlFor="lastName">Last name: </label>
                                 <input
                                     type="text"
                                     name="lastName"
+                                    id="lastName"
                                     value={profile.lastName}
                                     disabled
                                 ></input>
                             </p>
                             <p>
                                 <button type="submit">Save</button>
-                                <Link to="/user">Cancel</Link>
+                                <button
+                                    type="button"
+                                    onClick={() => showUser(true)}
+                                >
+                                    Cancel
+                                </button>
                             </p>
                         </div>
                     </form>

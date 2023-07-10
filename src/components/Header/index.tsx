@@ -29,7 +29,7 @@ export default function Header() {
                     <div className="signOptions">
                         {signedIn ? (
                             <>
-                                <Link className="option" to="/user">
+                                <Link className="option" to="/logged">
                                     <span className="optionSpan">
                                         <HiUserCircle /> {user}
                                     </span>

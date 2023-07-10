@@ -13,8 +13,9 @@ export default function Formsignin() {
     const [password, setPassword] = useState("");
     const [remember, setRemember] = useState(false);
 
-    const onUsernameChanged = (e: ChangeEvent<HTMLInputElement>) =>
+    const onUsernameChanged = (e: ChangeEvent<HTMLInputElement>) => {
         setUsername(e.target.value);
+    };
     const onPasswordChanged = (e: ChangeEvent<HTMLInputElement>) =>
         setPassword(e.target.value);
     const onRememberChanged = (e: ChangeEvent<HTMLInputElement>) =>
@@ -32,12 +33,14 @@ export default function Formsignin() {
         }
     };
 
-    if (isSuccess) {
-        console.log("success, token: ", data.body.token);
-        //taken care in extrareducers of authuser slice
-        //dispatch(setToken(data.body.token));
-        navigate("/user");
-    }
+    useEffect(() => {
+        if (isSuccess) {
+            console.log("success, token: ", data.body.token);
+            //taken care in extrareducers of authuser slice
+            //dispatch(setToken(data.body.token));
+            navigate("/logged");
+        }
+    }, [isSuccess]);
 
     return (
         <main className="form-main">
@@ -73,7 +76,7 @@ export default function Formsignin() {
                             type="checkbox"
                             id="checkbox"
                             name="remember"
-                            checked={remember}
+                            checked={remember || false}
                             onChange={onRememberChanged}
                         ></input>
                         <label htmlFor="checkbox">Remember me</label>
