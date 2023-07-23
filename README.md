@@ -28,7 +28,7 @@ Argent Bank uses the following tech stack:
 # Install dependencies
 npm install 
 
-All the above mentioned packages (react-dom, react-redux, redux-toolkit, redux-persist, react-icons )
+# All the above mentioned packages (react-dom, react-redux, redux-toolkit, redux-persist, react-icons )
 need to be installed as well:
 npm install react-dom react-router-dom react-redux redux-toolkit redux-persist react-icons
 
