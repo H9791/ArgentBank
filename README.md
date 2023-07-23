@@ -24,6 +24,7 @@ Argent Bank uses the following tech stack:
 3. Open a terminal window in the cloned project
 4. Run the following commands:
 
+```bash
 # Install dependencies
 npm install 
 
@@ -32,5 +33,6 @@ npm install react-dom react-router-dom react-redux redux-toolkit redux-persist r
 
 # Start the frontend
 npm run dev
+```
 
-Your application will be accessible on the localhost:  http://localhost:5173/
+Your application will be now accessible on the localhost:  http://localhost:5173/
