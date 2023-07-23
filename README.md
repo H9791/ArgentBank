@@ -17,11 +17,3 @@ Argent Bank uses the following tech stack:
 - [Redux Persist v6.0.0](https://github.com/rt2zz/redux-persist)
 - [React Icons v4.9.0](https://react-icons.github.io/react-icons/)
 
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-icons": "^4.9.0",
-        "react-redux": "^8.0.5",
-        "react-router-dom": "^6.11.2",
-        "redux-persist": "^6.0.0"
-
-
