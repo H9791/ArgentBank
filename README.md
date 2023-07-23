@@ -17,3 +17,20 @@ Argent Bank uses the following tech stack:
 - [Redux Persist v6.0.0](https://github.com/rt2zz/redux-persist)
 - [React Icons v4.9.0](https://react-icons.github.io/react-icons/)
 
+### Instructions to run the frontend
+
+1. Fork this repo
+2. Clone the repo onto your computer
+3. Open a terminal window in the cloned project
+4. Run the following commands:
+
+# Install dependencies
+npm install 
+
+All the above mentioned packages (react-dom, react-redux, redux-toolkit, redux-persist, react-icons ) need to be installed as well:
+npm install react-dom react-router-dom react-redux redux-toolkit redux-persist react-icons
+
+# Start the frontend
+npm run dev
+
+Your application will be accessible on the localhost:  http://localhost:5173/
