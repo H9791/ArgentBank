@@ -6,7 +6,7 @@ This codebase contains the code needed to run the frontend for Argent Bank.
 
 ### Prerequisites
 
-Argent Bank uses the following tech stack:
+Argent Bank frontend uses the following tech stack:
 
 - [Node.js v20.2.0](https://nodejs.org/en/)
 - [React v18.2.0](https://react.dev/)
@@ -37,3 +37,7 @@ npm run dev
 ```
 
 Your application will be now accessible on the localhost:  http://localhost:5173/
+
+
+### Instructions to run the backend can be found here
+- [Argent Bank backend](https://github.com/OpenClassrooms-Student-Center/ArgentBank-website/blob/main/README.md)
