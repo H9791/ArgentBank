@@ -12,7 +12,7 @@ export default function Header() {
     const dispatch = useDispatch();
     let user = useSelector(selectUsername);
     let signedIn = useSelector(selectToken);
-    //remove cookie and empty the store
+    //remove token and empty the store
     const handleSignout = () => {
         dispatch(removeUser());
         dispatch(removeToken());
@@ -47,7 +47,7 @@ export default function Header() {
                         ) : (
                             <Link className="option" to="/signin">
                                 <span className="optionSpan">
-                                    <HiUserCircle /> Sign in
+                                    <HiUserCircle /> Sign In
                                 </span>
                             </Link>
                         )}

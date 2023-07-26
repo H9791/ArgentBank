@@ -4,20 +4,26 @@
     margin-right: auto;
     margin-left: auto;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
-.trans .amount-view-container{
+.trans .trans-heading {
+    font-weight: normal;
+    font-size: inherit;
+}
+
+.trans .amount-view-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.amount-view-container .amount{
+.amount-view-container .amount {
     font-size: 48px;
     font-weight: bold;
 }
 
-.amount-view-container .view{
+.amount-view-container .view {
     color: white;
     background-color: #00bc77;
     font-weight: bold;

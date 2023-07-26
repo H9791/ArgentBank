@@ -1,14 +1,12 @@
 import "./styles.css";
 import { useEffect, useState, ChangeEvent, FormEvent } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAuthorizeUserMutation } from "../../redux/api/apiSlice";
-import { setToken } from "../../redux/slices/authSlice";
+import { HiUserCircle } from "react-icons/hi";
 
 export default function Formsignin() {
     //if user already signed in, redirect to the home page
     const navigate = useNavigate();
-    //const dispatch = useDispatch();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [remember, setRemember] = useState(false);
@@ -37,7 +35,6 @@ export default function Formsignin() {
         if (isSuccess) {
             console.log("success, token: ", data.body.token);
             //taken care in extrareducers of authuser slice
-            //dispatch(setToken(data.body.token));
             navigate("/logged");
         }
     }, [isSuccess]);
@@ -46,10 +43,11 @@ export default function Formsignin() {
         <main className="form-main">
             <div className="form-container">
                 <div className="form-heading">
-                    <i className="fa fa-user-circle"></i>
+                    <p>
+                        <HiUserCircle />
+                    </p>
                     <p>Sign In</p>
                 </div>
-                <span>{}</span>
                 <form className="form-signin" onSubmit={onSigninSubmitted}>
                     <div>
                         <label htmlFor="username">Username</label>

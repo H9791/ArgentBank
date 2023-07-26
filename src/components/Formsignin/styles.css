@@ -1,10 +1,10 @@
-.form-main{
-    flex:1;
+.form-main {
+    flex: 1;
     background-color: black;
     height: 100px;
 }
 
-.form-main .form-container{
+.form-main .form-container {
     background-color: white;
     width: 300px;
     height: 350px;
@@ -17,19 +17,19 @@
     align-items: center;
 }
 
-.form-main .form-container .form-heading i{
+.form-main .form-container .form-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form-main .form-container .form-heading p{
+.form-main .form-container .form-heading p {
     font-weight: bold;
     font-size: 24px;
-    margin: 10px 10px 15px 10px;
+    margin: 5px 10px 10px 10px;
 }
 
-.form-main .form-container .form-signin{
+.form-main .form-container .form-signin {
     width: 100%;
     flex: 1;
     display: flex;
@@ -38,7 +38,7 @@
     font-weight: bold;
 }
 
-.form-signin button{
+.form-signin button {
     background-color: #00bc77;
     color: white;
     text-decoration: underline;
@@ -50,16 +50,16 @@
 
 .form-signin input {
     height: 35px;
-    padding-top:0;
+    padding-top: 0;
     padding-bottom: 5px;
     width: 100%;
 }
 
-.form-signin #checkbox{
+.form-signin #checkbox {
     height: 14px;
     width: 16px;
 }
 
-.form-signin #remember{
+.form-signin #remember {
     font-weight: normal;
 }
