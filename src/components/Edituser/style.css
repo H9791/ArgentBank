@@ -1,17 +1,15 @@
-
 .main-user {
-    background-color: black;
+    background-color: #12002b;
     flex: 1;
 }
 
-
 .main-user-container .edit {
-    
     color: white;
     text-align: center;
+    margin-top: 20px;
 }
 
-.main-user-container .edit h2{
+.main-user-container .edit h2 {
     font-size: 24px;
     font-weight: normal;
     color: white;
@@ -31,5 +29,4 @@
     padding: 10px 40px;
     border: none;
     border-radius: 3px;
-
 }

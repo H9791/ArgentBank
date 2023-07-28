@@ -4,7 +4,7 @@
     margin-right: auto;
     margin-left: auto;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .trans .trans-heading {
@@ -19,7 +19,7 @@
 }
 
 .amount-view-container .amount {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -29,4 +29,12 @@
     font-weight: bold;
     font-size: 18px;
     padding: 10px 15px;
+    /* border-left: none;
+    border-top: none; */
+    border-color: #00bc77;
 }
+
+/* .amount-view-container .view:focus{
+    border-left: none;
+    border-top: none;
+} */
