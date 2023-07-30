@@ -81,7 +81,7 @@ export default function Formsignin() {
                         <label htmlFor="checkbox">Remember me</label>
                     </div>
                     <button type="submit">Sign in</button>
-                    {isError && <>Invalid username or password</>}
+                    {isError && <p>Invalid username or password</p>}
                 </form>
             </div>
         </main>

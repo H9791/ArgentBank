@@ -23,7 +23,7 @@ export default function Mainuser({ showUser }: MainuserProps) {
 
     let content;
     if (isFetching) {
-        console.log("fetching data");
+        //console.log("fetching data");
         content = <p>Fetching data...</p>;
     } else if (error) {
         content = <p>Error fetching profile</p>;

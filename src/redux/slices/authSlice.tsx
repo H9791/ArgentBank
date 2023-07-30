@@ -21,7 +21,7 @@ export const authSlice = createSlice({
             apiSlice.endpoints.authorizeUser.matchFulfilled,
             (state, action) => {
                 state.authToken = action.payload.body.token;
-                console.log("logging token:", state.authToken);
+                //console.log("logging token:", state.authToken);
             }
         );
     },

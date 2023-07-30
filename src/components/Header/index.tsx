@@ -8,7 +8,7 @@ import { HiUserCircle } from "react-icons/hi";
 import { FaSignOutAlt } from "react-icons/fa";
 
 export default function Header() {
-    console.log("header!");
+    //console.log("header!");
     const dispatch = useDispatch();
     let user = useSelector(selectUsername);
     let signedIn = useSelector(selectToken);
