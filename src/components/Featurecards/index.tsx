@@ -1,8 +1,22 @@
-import './styles.css'
+import "./styles.css";
+import Cards from "../../assets/featurecards/featureCards.json";
+import Featurecard from "../Featurecard";
 
 export default function Featurecards() {
-    return (<section className="feature-cards">
-        <article className="card">
+    return (
+        <section className="feature-cards">
+            {Cards.map((card, key) => {
+                return (
+                    <Featurecard
+                        key={key}
+                        source={card.source}
+                        heading={card.heading}
+                        paragraph={card.paragraph}
+                    />
+                );
+            })}
+
+            {/*         <article className="card">
             <div className="card-border">
                 <img src="src/assets/img/icon-chat.png" />
             </div>
@@ -24,7 +38,7 @@ export default function Featurecards() {
             </div>
             <h3>Security you can trust</h3>
             <p>We use top of the line encryption to make sure your data and money is always safe.</p>
-        </article>
-
-    </section>)
+        </article> */}
+        </section>
+    );
 }

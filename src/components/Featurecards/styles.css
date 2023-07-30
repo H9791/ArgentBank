@@ -1,35 +1,11 @@
-.feature-cards{
+.feature-cards {
     display: flex;
     align-items: stretch;
     width: 100%;
 }
 
-
-.feature-cards .card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    flex:1;
-    padding:40px;
-    height: 100%;
-}
-
-.feature-cards .card p{
-    text-align: center;
-}
-
-
-.feature-cards img{
-   padding: 15px;
-   width: 100px;
-   height: 100px;
-   border: 10px solid rgb(82, 172, 130);
-   border-radius:99px;
-}
-
-@media screen and (max-width:920px){
-    .feature-cards{
+@media screen and (max-width: 920px) {
+    .feature-cards {
         flex-direction: column;
     }
 }
