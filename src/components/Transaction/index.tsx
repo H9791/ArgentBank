@@ -15,15 +15,19 @@ export default function Transaction({
 }: Props) {
     return (
         <>
-            <article className="trans">
-                <h3 className="trans-heading">
-                    {accountName} (x{accountNumber})
-                </h3>
-                <div className="amount-view-container">
-                    <p className="amount">${accountBalance}</p>
+            <article className="trans-container">
+                <div className="trans">
+                    <h3 className="trans-heading">
+                        {accountName} (x{accountNumber})
+                    </h3>
+                    <div className="amount-view-container">
+                        <p className="amount">${accountBalance}</p>
+                    </div>
+                    <p>{accountBalanceType}</p>
+                </div>
+                <div>
                     <button className="view">View transactions</button>
                 </div>
-                <p>{accountBalanceType}</p>
             </article>
         </>
     );

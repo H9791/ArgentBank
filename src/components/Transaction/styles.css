@@ -1,12 +1,17 @@
-.trans {
-    width: 80%;
+.trans-container {
+    display: flex;
+    justify-content: space-between;
     background-color: white;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
     padding: 20px;
     margin-bottom: 30px;
 }
 
+/* .trans {
+}
+ */
 .trans .trans-heading {
     font-weight: normal;
     font-size: inherit;
@@ -23,18 +28,23 @@
     font-weight: bold;
 }
 
-.amount-view-container .view {
+.trans-container .view {
     color: white;
     background-color: #00bc77;
     font-weight: bold;
     font-size: 18px;
     padding: 10px 15px;
-    /* border-left: none;
-    border-top: none; */
+    margin-top: 30px;
     border-color: #00bc77;
 }
 
-/* .amount-view-container .view:focus{
-    border-left: none;
-    border-top: none;
-} */
+@media screen and (max-width: 720px) {
+    .trans-container {
+        flex-direction: column;
+    }
+
+    .trans-container .view {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

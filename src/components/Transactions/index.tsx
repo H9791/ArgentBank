@@ -5,7 +5,7 @@ export default function Transactions() {
         return (
             <>
                 <Transaction
-                    key={acc.accountName}
+                    key={acc.accountName + acc.accountBalanceType}
                     accountName={acc.accountName}
                     accountNumber={acc.accountNumber}
                     accountBalanceType={acc.accountBalanceType}
