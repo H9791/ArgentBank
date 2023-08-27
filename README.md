@@ -1,12 +1,12 @@
 # ArgentBank
 
 This codebase contains the code needed to run the frontend for Argent Bank.
-
+<hr>
 
 ![Screenshot](src/assets/readme/p11-bank-home.webp)
 &nbsp;
 &nbsp;
-<hr />
+<hr>
 
 ## Getting Started
 
