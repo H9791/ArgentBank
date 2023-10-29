@@ -2,6 +2,7 @@
 
 This codebase contains the code needed to run the frontend for Argent Bank.
 <hr>
+Project ArgentBank implements front-end for a banking website. Integrates functions like user authentification and transaction display, and uses React and Redux Toolkit for state management.
 
 ![Screenshot](src/assets/readme/p11-bank-home.webp)
 &nbsp;
